@@ -1,0 +1,38 @@
+{
+  "name": "Todo",
+  "version": "0.0.1",
+  "description": "A simple todo app to re-learn webdevelopment.",
+  "main": "webpack.config.js",
+  "dependencies": {
+    "@babel/preset-env": "^7.0.0-beta.44",
+    "flux": "^2.1.1",
+    "history": "^1.17.0",
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1",
+    "react-router-dom": "^4.3.0-rc.2",
+    "redux": "^3.7.2",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-preset-stage-3": "^6.24.1",
+    "react-redux": "^5.0.7",
+    "webpack": "^2.4.2"
+  },
+  "scripts": {
+    "dev": "webpack-dev-server --content-base src --inline --hot",
+    "build": "babel src -d lib",
+    "babel": "babel --presets es2015 js/main.js -o build/main.bundle.js",
+    "start": "http-server",
+    "webpack": "webpack"
+  },
+  "author": "Robin Alexander Dorstijn",
+  "license": "ISC"
+}
