@@ -1,3 +1,12 @@
+export function changeTempListText (text) {
+    return {
+        type: "CHANGE_TEMP_LIST",
+        payload: {
+            text
+        }
+    }
+}
+
 export function changeTempTodoText (text, listid) {
     return {
         type: "CHANGE_TEMP_TODO",

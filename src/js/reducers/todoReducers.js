@@ -29,12 +29,21 @@ function todolist (state, action) {
 
                 }
             }
+
+        case "REMOVE_TODO":
+            return {
+                ...state,
+                todos: state.todos.filter(
+                    (todo) => todo.id != action.payload)
+            }
     }
-}
+} 
 
 export default function reducer(state={ todolists:[] }, action) {
     switch (action.type) {
         case "CHANGE_TEMP_TODO":
+        case "ADD_TODO": 
+        case "REMOVE_TODO":
             return  {
                 ...state,
                 todolists: state.todolists.map(
@@ -51,22 +60,7 @@ export default function reducer(state={ todolists:[] }, action) {
                 ]
             }
 
-        case "ADD_TODO": 
-            return {
-                ...state,
-                todolists: state.todolists.map(
-                    list => todolist(list, action))
-            }            
 
-        case "REMOVE_TODO":
-            return  Object.assign({}, state, {
-                todolists: state.todolists.map((todolist, index) =>  {
-                    return {
-                        ...todolist,
-                        todos: todolist.todos.filter((todo) => {if (todo.id != action.payload) return true}) 
-                    }
-                })
-            }) 
 
         default:
             return {

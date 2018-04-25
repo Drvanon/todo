@@ -26,7 +26,11 @@ const mapDispatchToProps = dispatch => { return {
         return (
             <div className="col-lg-12">
                 <h1>Welcome</h1>
-                <p>Welcome to todos, here you can manage your todo lists!</p>
+                <p>Welcome to todos, here you can manage your todo lists! If you want to create a new list, give it a title and click 'create'.</p>
+                <div className="input-group">
+                    <input type="text" />
+                    <button className="btn btn-primary">Create</button>
+                </div>
                 <div>
                     { listComponents }
                 </div>
