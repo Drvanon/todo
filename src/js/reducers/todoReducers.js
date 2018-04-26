@@ -1,3 +1,23 @@
+const initialState = {
+    templist: "My first list",
+    todolists: [  
+        {
+            id: 1,
+            name: "Welcome to Todos",
+            temptext: "TempText",
+            todos: [
+                {
+                    id: 1,
+                    finished: false,
+                    text: "Figure out how to work react"
+                }
+            ]
+        }
+    ]
+}
+
+
+
 function todolist (state, action) {
     switch (action.type) {
         case "CHANGE_TEMP_TODO":
@@ -39,7 +59,7 @@ function todolist (state, action) {
     }
 } 
 
-export default function reducer(state={ todolists:[] }, action) {
+export default function reducer(state, action) {
     switch (action.type) {
         case "CHANGE_TEMP_TODO":
         case "ADD_TODO": 
@@ -56,27 +76,18 @@ export default function reducer(state={ todolists:[] }, action) {
                 ...state,
                 todolists: [
                     ...state.todolists,
-                    {id: Date.now(), todos:[], name: action.name, temptext: ""}
-                ]
+                    {id: Date.now(), todos:[], name: action.payload.name, temptext: ""}
+                ],
+                templist: ""
             }
 
-
+        case "CHANGE_TEMP_LIST":
+            return {
+                ...state,
+                templist: action.payload.text
+            }
 
         default:
-            return {
-                todolists: [  
-                    {
-                        id: 1,
-                        name: "Welcome to Todos",
-                        temptext: "TempText",
-                        todos: [
-                            {
-                                id: 1,
-                                finished: false,
-                                text: "Figure out how to work react"
-                            }
-                        ]
-                    }]
-            }
+            return initialState
     }
 }

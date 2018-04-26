@@ -2,7 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 import removeTodo from '../actions/todoActions'
 
-
 export default class TodoItem extends React.Component {
     render () {
         const { text, finished, remove } = this.props
