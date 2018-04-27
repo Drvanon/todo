@@ -23,7 +23,7 @@ function todolist (state, action) {
         case "CHANGE_TEMP_TODO":
             const { text, listid } = action.payload
             if (state.id != listid) {
-                return list
+                return state
             } else {
                 return {
                     ...state,
@@ -33,7 +33,7 @@ function todolist (state, action) {
 
         case "ADD_TODO":
             if (state.id != action.payload.listid) {
-                return list
+                return state 
             } else {
                 return {
                     ...state,

@@ -19,20 +19,20 @@ export default class TodoList extends React.Component {
             this.props.handleTodoTemp(event.target.value, todolist.id)
         }
         return (
-            <div className="card todo-list list-group w-50">
-                <h5 className="card-header">{ todolist.name }</h5>
-                <div className="card-body">
-                    <div>
-                        { todoItems }
-                    </div>
-                    <div className="input-group mb-3 ">
-                        <input type="text" onChange={handleTextChange} value={todolist.temptext}/>
-                        <div className="input-group-append">
-                            <button className="btn btn-success" onClick={handleAddTodoButton}>Add todo</button>
+                <div className="card todo-list list-group">
+                    <h5 className="card-header">{ todolist.name }</h5>
+                    <div className="card-body">
+                        <div>
+                            { todoItems }
+                        </div>
+                        <div className="input-group mb-3 ">
+                            <input type="text" onChange={handleTextChange} value={todolist.temptext}/>
+                            <div className="input-group-append">
+                                <button className="btn btn-success" onClick={handleAddTodoButton}>Add todo</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
         )
     }
 }

@@ -38,7 +38,7 @@ class Todos extends React.Component {
                     <input onChange={ handleTempList } value={ this.props.templist } className="form-control mb-2 mr-sm-2" type="text" />
                     <button className="btn btn-primary mb-2" onClick={ handleCreateList }>Create</button>
                 </div>
-                <div className="mt-1">
+                <div className="mt-1 card-columns">
                     { listComponents }
                 </div>
             </div>
