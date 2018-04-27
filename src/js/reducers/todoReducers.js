@@ -50,6 +50,13 @@ function todolist (state, action) {
                 }
             }
 
+        case "REMOVE_TODO_LIST":
+            console.log(state.id, action.payload, state.id != action.payload)
+            if (state.id != action.payload) {
+                console.log('ehh')
+                return state
+            }
+
         case "REMOVE_TODO":
             return {
                 ...state,
@@ -71,6 +78,11 @@ export default function reducer(state, action) {
                 )
             }
 
+        case "REMOVE_TODO_LIST":
+            return {
+                ...state,
+                todolists: state.todolists.filter((list) => list.id != action.payload)
+            }
         case "ADD_TODO_LIST":
             return {
                 ...state,

@@ -28,7 +28,7 @@ export function addTodoList (name) {
 
 export function removeTodoList (id) {
     return {
-        type: "ADD_TODO_LIST",
+        type: "REMOVE_TODO_LIST",
         payload: id
     }
 }

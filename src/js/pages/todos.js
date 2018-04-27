@@ -3,7 +3,7 @@ import { connect } from "react-redux"
 
 import TodoList from '../components/todolist'
 
-import { removeTodo, addTodo, changeTempTodoText, changeTempListText, addTodoList  } from '../actions/todoActions'
+import { removeTodo, addTodo, changeTempTodoText, changeTempListText, addTodoList, removeTodoList  } from '../actions/todoActions'
 
 const mapStateToProps = state => {
     return {
@@ -18,14 +18,16 @@ const mapDispatchToProps = dispatch => {
         handleTodoTemp: (text, listid) => dispatch(changeTempTodoText(text, listid)),
         addNewTodo: (text, listid) => dispatch(addTodo(text, listid)),
         handleListTemp: (text) => dispatch(changeTempListText(text)),
-        createList: (text) => dispatch(addTodoList(text))
+        createList: (text) => dispatch(addTodoList(text)),
+        removeTodoList: (id) => dispatch(removeTodoList(id))
     }
 }
 
 class Todos extends React.Component {
     render () {
+        const handleRemoveList = (id) => this.props.removeTodoList(id)
         const listComponents =  this.props.todolists.map(
-            (list) => <TodoList key={list.id} list={list} removeTodo={ this.props.removeTodo } handleAddTodo={ this.props.addNewTodo } handleTodoTemp={this.props.handleTodoTemp}/>)
+            (list) => <TodoList key={list.id} list={list} removeTodo={ this.props.removeTodo } handleAddTodo={ this.props.addNewTodo } handleTodoTemp={this.props.handleTodoTemp} handleRemoveList={handleRemoveList}/>)
 
         const handleTempList = (event) => this.props.handleListTemp(event.target.value)
         const handleCreateList = () => this.props.createList(this.props.templist)

@@ -18,9 +18,13 @@ export default class TodoList extends React.Component {
         const handleTextChange = (event) => {
             this.props.handleTodoTemp(event.target.value, todolist.id)
         }
+
+        const handleRemoveClick = () => {
+            this.props.handleRemoveList(this.props.list.id)
+        }
         return (
                 <div className="card todo-list list-group">
-                    <h5 className="card-header">{ todolist.name }</h5>
+                    <h5 className="card-header">{ todolist.name }<i className="pull-right fa fa-times" onClick={handleRemoveClick} aria-hidden="true"></i></h5>
                     <div className="card-body">
                         <div>
                             { todoItems }
