@@ -83,6 +83,8 @@ export default function reducer(state, action) {
                 ...state,
                 todolists: state.todolists.filter((list) => list.id != action.payload)
             }
+
+
         case "ADD_TODO_LIST":
             return {
                 ...state,
